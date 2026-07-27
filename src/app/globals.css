@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #F7F7F5;
+    --primary-blue: #3B28CC;
+    --primary-blue-hover: #2E1FA3;
+    --accent-lime: #D4FF33;
+    --accent-lime-hover: #C2F020;
+    --text-charcoal: #1A1A1A;
+    --card-border: #E2E2DC;
+  }
+
+  body {
+    background-color: var(--bg-cream);
+    color: var(--text-charcoal);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+  }
+}
+
+/* Custom Design System Utilities */
+.bg-cream {
+  background-color: #F7F7F5;
+}
+
+.bg-electric-blue {
+  background-color: #3B28CC;
+}
+
+.text-electric-blue {
+  color: #3B28CC;
+}
+
+.border-electric-blue {
+  border-color: #3B28CC;
+}
+
+.bg-lime-green {
+  background-color: #D4FF33;
+}
+
+.text-lime-green {
+  color: #D4FF33;
+}
+
+.text-charcoal {
+  color: #1A1A1A;
+}
+
+/* Pill Button Styling */
+.btn-pill-primary {
+  background-color: #3B28CC;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(59, 40, 204, 0.2);
+}
+
+.btn-pill-primary:hover {
+  background-color: #2E1FA3;
+  transform: translateY(-1px);
+}
+
+.btn-pill-accent {
+  background-color: #D4FF33;
+  color: #1A1A1A;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(212, 255, 51, 0.3);
+}
+
+.btn-pill-accent:hover {
+  background-color: #C2F020;
+  transform: translateY(-1px);
+}
+
+.arrow-badge-black {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  background-color: #1A1A1A;
+  color: #D4FF33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.arrow-badge-white {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Rounded Cards */
+.prism-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E2DC;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.prism-card-highlight {
+  background-color: #3B28CC;
+  color: #FFFFFF;
+  border: 1px solid #3B28CC;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(59, 40, 204, 0.25);
+}
+
+/* Decorative Asterisk */
+.asterisk-star {
+  color: #3B28CC;
+  display: inline-block;
+  user-select: none;
+}
