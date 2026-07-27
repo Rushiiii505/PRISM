@@ -1,6 +1,8 @@
-# ✦ PRISM | Automated Dev Community Content Engine
-
-> **Prism** ingests technical GitHub PRs or release notes payloads and translates them into a ready-to-publish suite of omni-channel social media posts, visual 5-slide carousels, and downloadable localized community hype kits (.zip packages).
+<div align="center">
+  <img src="public/prism.png" alt="Prism Logo" width="120" style="border-radius: 24px;" />
+  <h1>PRISM ✦ AI Content Engine for Dev Communities</h1>
+  <p><strong>Automated GitHub PR Ingestion • Omni-Channel Release Suite • 5-Slide Visual Carousels • Community Hype Kits (.zip)</strong></p>
+</div>
 
 ---
 
@@ -20,7 +22,7 @@ Prism strictly adheres to a friendly, modern design aesthetic blending clean typ
 
 ---
 
-## ⚙️ Core Architecture & System Modules
+## ⚙️ System Architecture
 
 ```
  ┌────────────────┐     ┌────────────────┐     ┌────────────────┐
@@ -35,86 +37,58 @@ Prism strictly adheres to a friendly, modern design aesthetic blending clean typ
  └────────────────┘     └────────────────┘     └────────────────┘
 ```
 
-### 1. 🔐 "The Vault" (Secure API & Key Storage)
-- **Encryption**: Standard Node.js `crypto` module (AES-256-GCM) encrypts OpenAI, Anthropic, Replicate, and fal.ai keys before writing to SQLite / PostgreSQL.
-- **ORM & Database**: Prisma Client v7 with SQLite local driver adapter (`@prisma/adapter-better-sqlite3`).
-- **Brand Kit Engine**: Customizable Brand Name, primary/accent color codes, tone of voice, and audience targeting.
+### 1. 🔐 "The Vault" (AES-256 Encrypted Key & Social OAuth Engine)
+- **Live Key Verification**: Real-time HTTP verification ping against OpenAI, Anthropic, Replicate, and fal.ai APIs before storing.
+- **Encryption**: Node.js `crypto` module (AES-256-GCM) encrypts keys in SQLite (`dev.db`) using Prisma ORM v7 with `@prisma/adapter-better-sqlite3`.
+- **Social OAuth Integration**: Connects Discord Webhooks, X (Twitter) OAuth, and LinkedIn Organization tokens with live popups.
 
 ### 2. ⚡ "The Beam" (Live PR & Diff Extraction)
-- Ingests GitHub PR URLs (`https://github.com/owner/repo/pull/123`).
-- Fetches PR details, commits, description, and raw `.diff` payload using the official GitHub REST API.
+- Ingests GitHub PR URLs (`https://github.com/owner/repo/pull/123`) or raw technical notes.
+- Uses GitHub REST API to fetch PR title, body, author, and raw `.diff` payload.
 
-### 3. 🎨 "The Canvas" (Live AI Streaming Engine)
-- Formats code diffs into structured omni-channel release kits using Vercel AI SDK (`@ai-sdk/openai`, `@ai-sdk/anthropic`).
-- Connects to Replicate & fal.ai for real visual image generation.
+### 3. 🎨 "The Canvas" (Real Streaming AI Engine)
+- Formats technical diffs into structured release kits using Vercel AI SDK (`@ai-sdk/openai`, `@ai-sdk/anthropic`).
+- Generates 5 Instagram visual carousel slides with custom brand styling and code highlight blocks.
 
-### 4. 📢 "Wavelengths" (Omni-Channel Output & Direct Publishing)
-- **Instagram 5-Slide Carousel**: Horizontal scrolling gallery of 5 customizable slide cards with code highlight blocks.
-- **X/Twitter & LinkedIn**: Editable technical thread and executive post copy.
-- **Discord Announcement**: Formatted markdown payload with live Discord Webhook execution.
-
-### 5. 📦 "Scatter" (Community Multiplier Engine)
-- Client-side `JSZip` utility packages all generated copy (`x_thread.txt`, `linkedin_post.txt`, `discord_announcement.md`), slide assets (`slide_1.txt` ... `slide_5.txt`), and `hype_kit_instructions.md` into a single downloadable `.zip` file with one click.
+### 4. 📢 "Wavelengths" & "Scatter" (Omni-Channel & Zip Packager)
+- **Instagram Carousel**: Horizontal 5-slide viewer with live text/code editing.
+- **X/Twitter & LinkedIn**: Technical thread and executive post copy with character counters.
+- **Discord**: Formatted markdown release with direct webhook broadcasting (`/api/wavelengths/publish`).
+- **Scatter Exporter**: 1-click `JSZip` utility packaging copy, slide assets, and instructions into a downloadable `.zip` file.
 
 ---
 
 ## 🚀 React Bits Components Integrated
 
-- **`<CurvedLoop />`**: Marquee effect rendering curved text paths across headers.
-- **`<GradualBlur />`**: Gradient backdrop blur overlay appended to bottom navigation and footer containers.
-
----
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14+ (App Router) with React 19 & TypeScript (Strict Mode)
-- **Styling**: Tailwind CSS
-- **Database / ORM**: Prisma ORM v7 with SQLite / PostgreSQL
-- **State Management**: Zustand
-- **AI SDK**: Vercel AI SDK (`ai`, `@ai-sdk/openai`, `@ai-sdk/anthropic`)
-- **Package Utilities**: `jszip`, `file-saver`, `lucide-react`
+- **`<CurvedLoop />`**: Marquee effect rendering text along a curved path across section headers.
+- **`<GradualBlur />`**: Backdrop blur gradient overlay attached to bottom navigation and footer containers.
 
 ---
 
 ## 💻 Quick Start & Setup
 
-### 1. Clone the repository
+### 1. Clone & Install
 ```bash
 git clone https://github.com/your-username/prism.git
 cd prism
-```
-
-### 2. Install dependencies
-```bash
 npm install
 ```
 
-### 3. Setup Environment Variables
-Create a `.env` file in the root directory:
+### 2. Setup Environment Variables (`.env`)
 ```env
 DATABASE_URL="file:./dev.db"
 ENCRYPTION_SECRET="prism_secure_vault_secret_32bytes_key!!"
 NEXTAUTH_SECRET="prism_nextauth_secret_key_123456789"
 NEXTAUTH_URL="http://localhost:3000"
-
-# Optional global fallback keys (or configure directly in UI Vault)
-OPENAI_API_KEY=""
-ANTHROPIC_API_KEY=""
-FAL_KEY=""
-REPLICATE_API_TOKEN=""
 ```
 
-### 4. Push Prisma Database Schema
+### 3. Sync Database & Run
 ```bash
 npx prisma db push
-```
-
-### 5. Run the Development Server
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view Prism.
+Open [http://localhost:3000](http://localhost:3000) to view Prism.
 
 ---
 

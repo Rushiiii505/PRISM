@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { usePrismStore } from "@/lib/store";
-import { Key, ShieldCheck, Sparkles, Layers } from "lucide-react";
+import { Key, ShieldCheck } from "lucide-react";
 
 export default function HeaderNav() {
   const { setIsVaultOpen, apiKeysConfigured } = usePrismStore();
@@ -14,8 +15,15 @@ export default function HeaderNav() {
       <div className="flex items-center justify-between">
         {/* Logo & Brand */}
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-[#3B28CC] flex items-center justify-center text-white shadow-md">
-            <Layers className="w-6 h-6 text-[#D4FF33]" />
+          <div className="w-12 h-12 rounded-2xl bg-[#3B28CC] p-1.5 flex items-center justify-center text-white shadow-md relative overflow-hidden">
+            <Image
+              src="/prism.png"
+              alt="Prism Logo"
+              width={40}
+              height={40}
+              className="object-contain rounded-xl"
+              unoptimized
+            />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
@@ -34,7 +42,7 @@ export default function HeaderNav() {
           <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold text-gray-700">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <ShieldCheck className="w-3.5 h-3.5 text-[#3B28CC]" />
-            <span>Vault Encrypted ({configuredCount}/4 Keys Ready)</span>
+            <span>Vault Live ({configuredCount}/4 Keys Verified)</span>
           </div>
 
           {/* Vault Settings Pill Button */}
