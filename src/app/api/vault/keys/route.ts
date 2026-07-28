@@ -87,7 +87,7 @@ export async function GET() {
       fal: false,
     };
 
-    keys.forEach((k) => {
+    keys.forEach((k: { provider: string }) => {
       configuredMap[k.provider] = true;
     });
 

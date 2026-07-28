@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     let openaiKey = process.env.OPENAI_API_KEY || "";
     let anthropicKey = process.env.ANTHROPIC_API_KEY || "";
 
-    storedKeys.forEach((k) => {
+    storedKeys.forEach((k: { provider: string; encryptedKey?: string | null }) => {
       if (k.provider === "openai" && k.encryptedKey) {
         const decrypted = decrypt(k.encryptedKey);
         if (decrypted) openaiKey = decrypted;

@@ -30,7 +30,7 @@ export async function GET() {
       discord: { connected: false },
     };
 
-    accounts.forEach((acc) => {
+    accounts.forEach((acc: { platform: string; platformUser?: string | null }) => {
       statusMap[acc.platform] = {
         connected: true,
         username: acc.platformUser || undefined,
